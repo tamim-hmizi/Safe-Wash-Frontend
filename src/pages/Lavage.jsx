@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux"; // Access Redux state
+import backend from "../../env";
 
 const Lavage = () => {
   const navigate = useNavigate();
@@ -66,7 +67,7 @@ const Lavage = () => {
   useEffect(() => {
     if (formData.date) {
       axios
-        .post(`http://localhost:3000/lavages/by-date`, { date: formData.date }) // Ensure backend filters by date
+        .post(`${backend}/lavages/by-date`, { date: formData.date }) // Ensure backend filters by date
         .then((response) => {
           const bookedHours = response.data.map((lavage) => lavage.hour); // Only hours for the selected date
           generateAvailableHours(bookedHours);
@@ -137,7 +138,7 @@ const Lavage = () => {
     };
 
     try {
-      await axios.post("http://localhost:3000/lavages", payload);
+      await axios.post(backend + "/lavages", payload);
       navigate("/mes-reservation/");
     } catch (err) {
       console.error(err);

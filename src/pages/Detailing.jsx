@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux"; // Access Redux state
-
+import backend from "../../env";
 const Detailing = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user); // Access user from Redux
@@ -50,7 +50,7 @@ const Detailing = () => {
   useEffect(() => {
     if (formData.date) {
       axios
-        .post(`http://localhost:3000/detailing/by-date`, {
+        .post(`${backend}/detailing/by-date`, {
           date: formData.date,
         })
         .then((response) => {
@@ -110,7 +110,7 @@ const Detailing = () => {
     };
 
     try {
-      await axios.post("http://localhost:3000/detailing", payload);
+      await axios.post(backend + "/detailing", payload);
       navigate("/mes-reservation/");
     } catch (err) {
       console.error(err);

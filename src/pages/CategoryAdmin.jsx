@@ -3,6 +3,7 @@ import axios from "axios";
 import { FiTrash2 } from "react-icons/fi"; // React icon for trash
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import backend from "../../env";
 
 function CategoryAdmin() {
   const [categories, setCategories] = useState([]);
@@ -18,7 +19,7 @@ function CategoryAdmin() {
   // Fetch categories
   useEffect(() => {
     axios
-      .get("http://localhost:3000/categories")
+      .get(backend + "/categories")
       .then((response) => setCategories(response.data))
       .catch((error) => console.error("Error fetching categories:", error));
   }, []);
@@ -28,7 +29,7 @@ function CategoryAdmin() {
     if (!newCategory.trim()) return;
 
     axios
-      .post("http://localhost:3000/categories", { name: newCategory })
+      .post(backend + "/categories", { name: newCategory })
       .then((response) => {
         setCategories((prev) => [...prev, response.data]);
         setNewCategory("");
@@ -39,7 +40,7 @@ function CategoryAdmin() {
   // Delete a category
   const handleDeleteCategory = (id) => {
     axios
-      .delete(`http://localhost:3000/categories/${id}`)
+      .delete(`${backend}/categories/${id}`)
       .then(() => {
         setCategories((prev) => prev.filter((category) => category._id !== id));
       })

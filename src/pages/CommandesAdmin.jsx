@@ -3,7 +3,7 @@ import axios from "axios";
 import { FiCheckCircle, FiXCircle } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import backend from "../../env";
 const CommandesAdmin = () => {
   const [commandes, setCommandes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,7 +21,7 @@ const CommandesAdmin = () => {
     const fetchCommandes = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:3000/commandes");
+        const response = await axios.get(backend + "/commandes");
         setCommandes(response.data);
       } catch (err) {
         console.error("Error fetching commandes:", err);
@@ -37,7 +37,7 @@ const CommandesAdmin = () => {
   // Handle verification toggle
   const toggleVerification = async (commandeId, isVerified) => {
     try {
-      await axios.put("http://localhost:3000/commandes/verify", {
+      await axios.put(backend + "/commandes/verify", {
         commandeId,
         isVerified,
       });
@@ -67,7 +67,9 @@ const CommandesAdmin = () => {
           ) : error ? (
             <p className="text-center text-red-600">{error}</p>
           ) : commandes.length === 0 ? (
-            <p className="text-center text-gray-400">Aucune commande disponible.</p>
+            <p className="text-center text-gray-400">
+              Aucune commande disponible.
+            </p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {commandes.map((commande) => (
@@ -84,22 +86,27 @@ const CommandesAdmin = () => {
                     />
                   ) : (
                     <div className="w-full h-48 bg-gray-100 rounded-md flex items-center justify-center mb-4">
-                      <span className="text-gray-500">Image non disponible</span>
+                      <span className="text-gray-500">
+                        Image non disponible
+                      </span>
                     </div>
                   )}
 
                   {/* Product Name */}
                   <h2 className="text-lg font-semibold text-white mb-2">
-                    <strong>Produit :</strong> {commande.product?.name || "Produit inconnu"}
+                    <strong>Produit :</strong>{" "}
+                    {commande.product?.name || "Produit inconnu"}
                   </h2>
 
                   {/* User Info */}
                   <p className="text-gray-400 mb-2">
                     <strong>Commanditaire :</strong>{" "}
-                    {commande.user?.name + " " + commande.user?.lastName || "Nom inconnu"}
+                    {commande.user?.name + " " + commande.user?.lastName ||
+                      "Nom inconnu"}
                   </p>
                   <p className="text-gray-400 mb-4">
-                    <strong>Numéro :</strong> {commande.user?.phone || "Numéro inconnu"}
+                    <strong>Numéro :</strong>{" "}
+                    {commande.user?.phone || "Numéro inconnu"}
                   </p>
 
                   {/* Verification Checkbox */}

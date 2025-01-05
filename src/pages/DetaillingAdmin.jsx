@@ -8,7 +8,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Modal from "react-modal";
 import { FaTrashAlt, FaTimes } from "react-icons/fa";
-
+import backend from "../../env";
 Modal.setAppElement("#root");
 
 function DetailingAdmin() {
@@ -22,7 +22,7 @@ function DetailingAdmin() {
 
   const fetchDetailings = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:3000/detailing");
+      const response = await axios.get(backend + "/detailing");
       const formattedEvents = response.data.map((detailing) => {
         const [startHour, startMinute] = detailing.hour.split(":").map(Number);
         const durationInMinutes = 6 * 60 + 30; // 6 hours 30 minutes in minutes
@@ -107,9 +107,7 @@ function DetailingAdmin() {
     if (!selectedDetailing) return;
 
     try {
-      await axios.delete(
-        `http://localhost:3000/detailing/${selectedDetailing._id}`
-      );
+      await axios.delete(`${backend}/detailing/${selectedDetailing._id}`);
       setEvents((prevEvents) =>
         prevEvents.filter((event) => event.id !== selectedDetailing._id)
       );

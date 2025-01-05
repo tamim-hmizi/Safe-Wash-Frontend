@@ -15,6 +15,7 @@ import {
   FaUser,
   FaTimes,
 } from "react-icons/fa";
+import backend from "../../env";
 
 Modal.setAppElement("#root");
 
@@ -30,7 +31,7 @@ function LavageAdmin() {
   // Fetch Lavages with Memoization
   const fetchLavages = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:3000/lavages");
+      const response = await axios.get(backend + "/lavages");
       const formattedEvents = response.data.map((lavage) => {
         const [startHour, startMinute] = lavage.hour.split(":").map(Number);
 
@@ -150,7 +151,7 @@ function LavageAdmin() {
     if (!selectedLavage) return;
 
     try {
-      await axios.delete(`http://localhost:3000/lavages/${selectedLavage._id}`);
+      await axios.delete(`${backend}/lavages/${selectedLavage._id}`);
       setEvents((prevEvents) =>
         prevEvents.filter((event) => event.id !== selectedLavage._id)
       );

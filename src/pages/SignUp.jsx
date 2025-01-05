@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import backend from "../../env";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/users/register", formData);
+      await axios.post(backend + "/users/register", formData);
       navigate("/signin");
     } catch (err) {
       setError(err.response?.data?.message || "Erreur de serveur");

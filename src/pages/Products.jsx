@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import backend from "../../env";
 
 Modal.setAppElement("#root");
 
@@ -28,14 +29,14 @@ const Products = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/categories")
+      .get(backend + "/categories")
       .then((response) => setCategories(response.data))
       .catch((error) =>
         console.error("Erreur lors de la récupération des catégories :", error)
       );
 
     axios
-      .get("http://localhost:3000/products")
+      .get(backend + "/products")
       .then((response) => {
         setAllProducts(response.data);
         setProducts(response.data);
@@ -81,7 +82,7 @@ const Products = () => {
     }
 
     axios
-      .post("http://localhost:3000/commandes/", {
+      .post(backend + "/commandes/", {
         email: user.email,
         productId: selectedProduct._id,
       })

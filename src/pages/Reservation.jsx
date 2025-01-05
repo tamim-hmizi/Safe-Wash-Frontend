@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import backend from "../../env";
 const Reservation = () => {
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -39,19 +39,19 @@ const Reservation = () => {
         const endpoints = [
           {
             type: "lavage",
-            url: `http://localhost:3000/lavages/user/${user.email}`,
+            url: `${backend}/lavages/user/${user.email}`,
           },
           {
             type: "tolerie",
-            url: `http://localhost:3000/tolerie/user/${user.email}`,
+            url: `${backend}/tolerie/user/${user.email}`,
           },
           {
             type: "polissage",
-            url: `http://localhost:3000/polissage/user/${user.email}`,
+            url: `${backend}/polissage/user/${user.email}`,
           },
           {
             type: "detailing",
-            url: `http://localhost:3000/detailing/user/${user.email}`,
+            url: `${backend}/detailing/user/${user.email}`,
           },
         ];
 
@@ -81,7 +81,7 @@ const Reservation = () => {
 
   const handleDelete = async (id, category) => {
     try {
-      const endpoint = `http://localhost:3000/${
+      const endpoint = `${backend}/${
         category === "lavage" ? "lavages" : category
       }/${id}`;
       await axios.delete(endpoint);

@@ -8,7 +8,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Modal from "react-modal";
 import { FaTrashAlt, FaTimes } from "react-icons/fa";
-
+import backend from "../../env";
 Modal.setAppElement("#root");
 
 function TolerieAdmin() {
@@ -22,7 +22,7 @@ function TolerieAdmin() {
 
   const fetchToleries = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:3000/tolerie");
+      const response = await axios.get(backend + "/tolerie");
       const formattedEvents = response.data.map((tolerie) => {
         const [startHour, startMinute] = tolerie.hour.split(":").map(Number);
         const endHour = startHour + 1;
@@ -99,9 +99,7 @@ function TolerieAdmin() {
     if (!selectedTolerie) return;
 
     try {
-      await axios.delete(
-        `http://localhost:3000/tolerie/${selectedTolerie._id}`
-      );
+      await axios.delete(`${backend}/tolerie/${selectedTolerie._id}`);
       setEvents((prevEvents) =>
         prevEvents.filter((event) => event.id !== selectedTolerie._id)
       );

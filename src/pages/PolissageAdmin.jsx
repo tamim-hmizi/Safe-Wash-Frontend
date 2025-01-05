@@ -8,6 +8,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import Modal from "react-modal";
 import { FaTrashAlt, FaTimes } from "react-icons/fa";
+import backend from "../../env";
 
 Modal.setAppElement("#root");
 
@@ -22,7 +23,7 @@ function PolissageAdmin() {
 
   const fetchPolissages = useCallback(async () => {
     try {
-      const response = await axios.get("http://localhost:3000/polissage");
+      const response = await axios.get(backend + "/polissage");
       const formattedEvents = response.data.map((polissage) => {
         const [startHour, startMinute] = polissage.hour.split(":").map(Number);
         const endHour = startHour + 1;
@@ -97,9 +98,7 @@ function PolissageAdmin() {
     if (!selectedPolissage) return;
 
     try {
-      await axios.delete(
-        `http://localhost:3000/polissage/${selectedPolissage._id}`
-      );
+      await axios.delete(`${backend}/polissage/${selectedPolissage._id}`);
       setEvents((prevEvents) =>
         prevEvents.filter((event) => event.id !== selectedPolissage._id)
       );

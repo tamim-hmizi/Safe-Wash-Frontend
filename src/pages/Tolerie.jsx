@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import backend from "../../env";
 const TolerieForm = () => {
   const navigate = useNavigate();
   // Access the current user from Redux state
@@ -33,7 +33,7 @@ const TolerieForm = () => {
   useEffect(() => {
     if (formData.date) {
       axios
-        .post("http://localhost:3000/tolerie/by-date", { date: formData.date })
+        .post(backend + "/tolerie/by-date", { date: formData.date })
         .then((response) => {
           const bookedHours = response.data.map((booking) => booking.hour);
           generateAvailableHours(bookedHours);
@@ -98,7 +98,7 @@ const TolerieForm = () => {
     };
 
     try {
-      await axios.post("http://localhost:3000/tolerie", payload);
+      await axios.post(backend + "/tolerie", payload);
       navigate("/mes-reservation/");
     } catch (err) {
       console.error(err);

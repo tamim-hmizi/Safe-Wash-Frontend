@@ -3,7 +3,7 @@ import axios from "axios";
 import { FiCheckCircle, FiXCircle } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import backend from "../../env";
 const Commandes = () => {
   const [commandes, setCommandes] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,9 +27,7 @@ const Commandes = () => {
     const fetchCommandes = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-          `http://localhost:3000/commandes/${user.email}`
-        );
+        const response = await axios.get(`${backend}/commandes/${user.email}`);
         if (Array.isArray(response.data)) {
           setCommandes(response.data);
         } else {
@@ -49,7 +47,7 @@ const Commandes = () => {
 
   const cancelCommande = async (commandeId) => {
     try {
-      await axios.delete(`http://localhost:3000/commandes/${commandeId}`);
+      await axios.delete(`${backend}/commandes/${commandeId}`);
       setCommandes((prevCommandes) =>
         prevCommandes.filter((commande) => commande._id !== commandeId)
       );

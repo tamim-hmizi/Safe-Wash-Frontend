@@ -4,6 +4,7 @@ import { FiTrash2 } from "react-icons/fi"; // React icon for trash
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Modal from "react-modal";
+import backend from "../../env";
 
 Modal.setAppElement("#root");
 
@@ -29,12 +30,12 @@ function ProductAdmin() {
   // Fetch products and categories
   useEffect(() => {
     axios
-      .get("http://localhost:3000/products")
+      .get(backend + "/products")
       .then((response) => setProducts(response.data))
       .catch((error) => console.error("Error fetching products:", error));
 
     axios
-      .get("http://localhost:3000/categories")
+      .get(backend + "/categories")
       .then((response) => setCategories(response.data))
       .catch((error) => console.error("Error fetching categories:", error));
   }, []);
@@ -87,7 +88,7 @@ function ProductAdmin() {
 
     // Create a new product
     axios
-      .post("http://localhost:3000/products", productData)
+      .post(backend + "/products", productData)
       .then((response) => {
         setProducts((prev) => [...prev, response.data]);
         closeModal();
@@ -98,7 +99,7 @@ function ProductAdmin() {
   // Handle product deletion
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:3000/products/${id}`)
+      .delete(`${backend}/products/${id}`)
       .then(() => {
         setProducts((prev) => prev.filter((product) => product._id !== id));
       })
@@ -244,7 +245,10 @@ function ProductAdmin() {
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-semibold mb-2" htmlFor="categoryId">
+            <label
+              className="block text-sm font-semibold mb-2"
+              htmlFor="categoryId"
+            >
               Catégorie
             </label>
             <select

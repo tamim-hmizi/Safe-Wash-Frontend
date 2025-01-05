@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import backend from "../../env";
 
 const Polissage = () => {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const Polissage = () => {
   useEffect(() => {
     if (formData.date) {
       axios
-        .post("http://localhost:3000/polissage/by-date", {
+        .post(backend + "/polissage/by-date", {
           date: formData.date,
         })
         .then((response) => {
@@ -117,7 +118,7 @@ const Polissage = () => {
     };
 
     try {
-      await axios.post("http://localhost:3000/polissage", payload);
+      await axios.post(backend + "/polissage", payload);
       navigate("/mes-reservation/");
     } catch (err) {
       console.error(err);

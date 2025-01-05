@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/userSlice"; // import the setUser action
 import { useSelector } from "react-redux";
-
+import backend from "../../env";
 const SignIn = () => {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -36,10 +36,7 @@ const SignIn = () => {
     e.preventDefault();
     try {
       // Make POST request to login
-      const response = await axios.post(
-        `http://localhost:3000/users/login`,
-        formData
-      );
+      const response = await axios.post(`${backend}/users/login`, formData);
 
       // Dispatch the user data to Redux
       dispatch(setUser(response.data.user));
