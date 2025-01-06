@@ -1,2 +1,2 @@
-const backend = "safewashbackend:3001";
+const backend = "http://safewashbackend:3001";
 export default backend;
