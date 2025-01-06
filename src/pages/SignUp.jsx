@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import backend from "../../env";
-
+import { Link } from "react-router-dom";
 const SignUp = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
@@ -140,9 +140,9 @@ const SignUp = () => {
         </form>
         <p className="text-center mt-4 text-gray-400">
           Déjà un compte ?{" "}
-          <a href="/signin" className="text-blue-500 hover:underline">
+          <Link to="/signin" className="text-blue-500 hover:underline">
             Se connecter
-          </a>
+          </Link>
         </p>
       </div>
     </div>

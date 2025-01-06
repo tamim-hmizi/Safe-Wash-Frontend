@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -60,18 +60,19 @@ const Home = () => {
               <div
                 key={index}
                 className="relative overflow-hidden cursor-pointer rounded-lg shadow-lg bg-gray-800"
-                onClick={() => (window.location.href = service.path)}
               >
-                <img
-                  src={service.image}
-                  alt={service.name}
-                  className="w-full h-48 md:h-64 object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-50 hover:bg-opacity-80 flex items-center justify-center">
-                  <h3 className="text-lg md:text-xl font-bold text-white">
-                    {service.name}
-                  </h3>
-                </div>
+                <Link path={service.path}>
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="w-full h-48 md:h-64 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-50 hover:bg-opacity-80 flex items-center justify-center">
+                    <h3 className="text-lg md:text-xl font-bold text-white">
+                      {service.name}
+                    </h3>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -109,12 +110,12 @@ const Home = () => {
             Pour toute question ou demande de service, n’hésitez pas à nous
             contacter. Nous sommes là pour vous aider.
           </p>
-          <a
+          <Link
             href="/contact"
             className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-600 transition duration-300"
           >
             En savoir plus
-          </a>
+          </Link>
         </div>
       </section>
     </div>

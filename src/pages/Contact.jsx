@@ -9,7 +9,7 @@ const Contact = () => {
       navigate("/dashboard");
     }
   }, [user, navigate]);
-  
+
   const slideshowImages = [
     "/slideshow1.jpg",
     "/slideshow2.jpg",
@@ -56,22 +56,7 @@ const Contact = () => {
 
           <div className="flex justify-center space-x-6 mb-8">
             <a
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-blue-500 transition duration-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 24h11.495v-9.294H9.692V11.01h3.128V8.414c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.462.099 2.793.143v3.24h-1.917c-1.504 0-1.796.715-1.796 1.764v2.312h3.588l-.467 3.696h-3.12V24h6.116c.73 0 1.325-.593 1.325-1.325V1.325C24 .593 23.406 0 22.675 0z" />
-              </svg>
-            </a>
-            <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/safewash.tn/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-pink-500 transition duration-300"
@@ -88,7 +73,7 @@ const Contact = () => {
               </svg>
             </a>
             <a
-              href="mailto:support@safewash.com"
+              href="mailto:safewashsupport@gmail.com"
               className="text-gray-300 hover:text-green-500 transition duration-300"
             >
               <svg
@@ -98,6 +83,19 @@ const Contact = () => {
                 viewBox="0 0 24 24"
               >
                 <path d="M12 12.713l-11.99-9.713v16.287h24v-16.287l-12.01 9.713zm0-1.415l12-9.713h-24l12 9.713z" />
+              </svg>
+            </a>
+            <a
+              href="tel:+21693883533"
+              className="text-gray-300 hover:text-green-500 transition duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M20.487 15.14c-1.047-.52-2.125-.918-3.207-1.188-.693-.17-1.42-.016-1.937.504l-2.019 2.017c-2.98-1.554-5.478-4.05-7.032-7.029l2.017-2.019c.52-.517.674-1.243.504-1.937-.27-1.081-.667-2.159-1.188-3.207-.607-1.22-2.086-1.618-3.18-.963l-2.304 1.378c-.796.476-1.278 1.349-1.278 2.286 0 7.258 5.908 13.166 13.166 13.166.937 0 1.81-.482 2.286-1.278l1.378-2.304c.654-1.094.257-2.573-.963-3.18z" />
               </svg>
             </a>
           </div>

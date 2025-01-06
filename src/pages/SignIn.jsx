@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../redux/userSlice"; // import the setUser action
 import { useSelector } from "react-redux";
 import backend from "../../env";
+import { Link } from "react-router-dom";
 const SignIn = () => {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -101,9 +102,9 @@ const SignIn = () => {
         </form>
         <p className="text-center mt-4 text-gray-400">
           Pas encore de compte ?{" "}
-          <a href="/signup" className="text-blue-500 hover:underline">
+          <Link to="/signup" className="text-blue-500 hover:underline">
             Créer un compte
-          </a>
+          </Link>
         </p>
       </div>
     </div>
