@@ -61,7 +61,7 @@ const Home = () => {
                 key={index}
                 className="relative overflow-hidden cursor-pointer rounded-lg shadow-lg bg-gray-800"
               >
-                <Link path={service.path}>
+                <Link to={service.path}>
                   <img
                     src={service.image}
                     alt={service.name}
@@ -111,7 +111,7 @@ const Home = () => {
             contacter. Nous sommes là pour vous aider.
           </p>
           <Link
-            href="/contact"
+            to="/contact"
             className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-600 transition duration-300"
           >
             En savoir plus

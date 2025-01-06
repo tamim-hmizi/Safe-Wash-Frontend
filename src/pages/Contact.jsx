@@ -102,10 +102,10 @@ const Contact = () => {
 
           <div className="relative h-64 sm:h-80 lg:h-96 w-full rounded-lg overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.fr/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509476!2d144.95592831564536!3d-37.81720974201457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577df8dc1d8f01a!2sVictoria%20Harbour!5e0!3m2!1sen!2sau!4v1602141435937!5m2!1sen!2sau"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3121.117674943496!2d10.183178!3d36.883812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzYuODgzODEyLCAxMC4xODMxNzg!5e0!3m2!1sen!2sus!4v1602141435937!5m2!1sen!2sus"
               width="100%"
               height="100%"
-              allowFullScreen=""
+              allowfullscreen=""
               aria-hidden="false"
               tabIndex="0"
               className="border-0 filter grayscale-[30%] invert-[90%]"
