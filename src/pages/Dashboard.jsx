@@ -62,7 +62,7 @@ function Dashboard() {
               </li>
               <li>
                 <Link
-                  to="/categories"
+                  to="/dashboard/categories"
                   onClick={closeMobileMenu} // Close the menu on click
                   className="flex items-center py-2 px-4 text-white hover:bg-gray-900 rounded-lg"
                 >
@@ -72,7 +72,7 @@ function Dashboard() {
               </li>
               <li>
                 <Link
-                  to="/products"
+                  to="/dashboard/products"
                   onClick={closeMobileMenu}
                   className="flex items-center py-2 px-4 text-white hover:bg-gray-900 rounded-lg"
                 >
@@ -82,7 +82,7 @@ function Dashboard() {
               </li>
               <li>
                 <Link
-                  to="/commandes"
+                  to="/dashboard/commandes"
                   onClick={closeMobileMenu}
                   className="flex items-center py-2 px-4 text-white hover:bg-gray-900 rounded-lg"
                 >
@@ -92,7 +92,7 @@ function Dashboard() {
               </li>
               <li>
                 <Link
-                  to="/lavages"
+                  to="/dashboard/lavages"
                   onClick={closeMobileMenu}
                   className="flex items-center py-2 px-4 text-white hover:bg-gray-900 rounded-lg"
                 >
@@ -102,7 +102,7 @@ function Dashboard() {
               </li>
               <li>
                 <Link
-                  to="/detailing"
+                  to="/dashboard/detailing"
                   onClick={closeMobileMenu}
                   className="flex items-center py-2 px-4 text-white hover:bg-gray-900 rounded-lg"
                 >
@@ -112,7 +112,7 @@ function Dashboard() {
               </li>
               <li>
                 <Link
-                  to="/polissage"
+                  to="/dashboard/polissage"
                   onClick={closeMobileMenu}
                   className="flex items-center py-2 px-4 text-white hover:bg-gray-900 rounded-lg"
                 >
@@ -122,7 +122,7 @@ function Dashboard() {
               </li>
               <li>
                 <Link
-                  to="/tolerie"
+                  to="/dashboard/tolerie"
                   onClick={closeMobileMenu}
                   className="flex items-center py-2 px-4 text-white hover:bg-gray-900 rounded-lg"
                 >
@@ -152,7 +152,7 @@ function Dashboard() {
           </li>
           <li>
             <Link
-              to="/categories"
+              to="/dashboard/categories"
               className="flex items-center py-2 px-4 mb-2 text-white hover:bg-gray-900 rounded-lg"
             >
               <FiList size={20} className="mr-3" />
@@ -161,7 +161,7 @@ function Dashboard() {
           </li>
           <li>
             <Link
-              to="/products"
+              to="/dashboard/products"
               className="flex items-center py-2 px-4 mb-2 text-white hover:bg-gray-900 rounded-lg"
             >
               <FiPackage size={20} className="mr-3" />
@@ -170,7 +170,7 @@ function Dashboard() {
           </li>
           <li>
             <Link
-              to="/commandes"
+              to="/dashboard/commandes"
               className="flex items-center py-2 px-4 mb-2 text-white hover:bg-gray-900 rounded-lg"
             >
               <FiClipboard size={20} className="mr-3" />
@@ -179,7 +179,7 @@ function Dashboard() {
           </li>
           <li>
             <Link
-              to="/lavages"
+              to="/dashboard/lavages"
               className="flex items-center py-2 px-4 mb-2 text-white hover:bg-gray-900 rounded-lg"
             >
               <MdOutlineLocalCarWash size={20} className="mr-3" />
@@ -188,7 +188,7 @@ function Dashboard() {
           </li>
           <li>
             <Link
-              to="/detailing"
+              to="/dashboard/detailing"
               className="flex items-center py-2 px-4 mb-2 text-white hover:bg-gray-900 rounded-lg"
             >
               <TbVacuumCleaner size={20} className="mr-3" />
@@ -197,7 +197,7 @@ function Dashboard() {
           </li>
           <li>
             <Link
-              to="/polissage"
+              to="/dashboard/polissage"
               className="flex items-center py-2 px-4 mb-2 text-white hover:bg-gray-900 rounded-lg"
             >
               <GiCarWheel size={20} className="mr-3" />
@@ -206,7 +206,7 @@ function Dashboard() {
           </li>
           <li>
             <Link
-              to="/tolerie"
+              to="/dashboard/tolerie"
               className="flex items-center py-2 px-4 mb-2 text-white hover:bg-gray-900 rounded-lg"
             >
               <RiPaintBrushLine size={20} className="mr-3" />
