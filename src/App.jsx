@@ -43,13 +43,13 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/dashboard" element={<Dashboard />}>
               <Route index element={<Stats />} />
-              <Route path="categories" element={<CategoryAdmin />} />
-              <Route path="products" element={<ProductAdmin />} />
-              <Route path="commandes" element={<CommandesAdmin />} />
-              <Route path="lavages" element={<LavageAdmin />} />
-              <Route path="detailing" element={<DetailingAdmin />} />
-              <Route path="polissage" element={<PolissageAdmin />} />
-              <Route path="tolerie" element={<TolerieAdmin />} />
+              <Route path="/categories" element={<CategoryAdmin />} />
+              <Route path="/products" element={<ProductAdmin />} />
+              <Route path="/commandes" element={<CommandesAdmin />} />
+              <Route path="/lavages" element={<LavageAdmin />} />
+              <Route path="/detailing" element={<DetailingAdmin />} />
+              <Route path="/polissage" element={<PolissageAdmin />} />
+              <Route path="/tolerie" element={<TolerieAdmin />} />
             </Route>
           </Routes>
         </main>
